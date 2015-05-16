@@ -51,7 +51,8 @@ module.exports = React.createClass({
           fontSize={props.fontSize}
           textColor={props.textColor}
           hoverAnimation={props.hoverAnimation}
-        />
+          clickHandler={props.clickHandler}
+            />
       );
     }, this);
 

@@ -36,7 +36,9 @@ module.exports = React.createClass({
           fill={props.fill} 
           onMouseOver={props.handleMouseOver}
           onMouseLeave={props.handleMouseLeave}
-        />
+          onClick={props.clickHandler}
+
+            />
         <text
           x={props.width / 2}
           y={props.height / 2}

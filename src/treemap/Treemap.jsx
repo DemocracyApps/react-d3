@@ -21,7 +21,8 @@ module.exports = React.createClass({
                     ]),
     colors:         React.PropTypes.func,
     colorAccessor:  React.PropTypes.func,
-    hoverAnimation: React.PropTypes.bool
+    hoverAnimation: React.PropTypes.bool,
+    clickHandler:   React.PropTypes.func
   },
 
   getDefaultProps() {
@@ -35,6 +36,7 @@ module.exports = React.createClass({
       fontSize:       '0.85em',
       colors:         d3.scale.category20c(),
       colorAccessor:  (d, idx) => idx,
+      clickHandler:   null,
     };
   },
 
@@ -58,6 +60,7 @@ module.exports = React.createClass({
             textColor={props.textColor}
             fontSize={props.fontSize}
             hoverAnimation={props.hoverAnimation}
+            clickHandler={props.clickHandler}
           />
         </g>
       </Chart>

@@ -32,7 +32,8 @@ module.exports = React.createClass({
         fill={this.state.fill}
         handleMouseOver={props.hoverAnimation ? this._animateCell : null}
         handleMouseLeave={props.hoverAnimation ? this._restoreCell : null}
-      />
+        clickHandler={props.clickHandler}
+          />
     );
   },
 
