@@ -41,7 +41,6 @@ module.exports = React.createClass({
   render() {
 
     var props = this.props;
-
     return (
       <Chart
         title={props.title}
@@ -58,6 +57,7 @@ module.exports = React.createClass({
             textColor={props.textColor}
             fontSize={props.fontSize}
             hoverAnimation={props.hoverAnimation}
+            eventHandlers={props.eventHandlers}
           />
         </g>
       </Chart>

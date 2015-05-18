@@ -24,9 +24,14 @@ module.exports = React.createClass({
       'fill': props.textColor,
       'fontSize': props.fontSize
     };
+    var onClickHandler = undefined;
+    if (this.props.hasOwnProperty('eventHandlers')) {
+      if (this.props.eventHandlers.hasOwnProperty('onClick')) {
+        onClickHandler = this.props.eventHandlers.onClick.bind(null, props.dataContext);
+      }
+    }
 
     var t = `translate(${props.x}, ${props.y}  )`;
-
     return (
       <g transform={t}>
         <rect
@@ -36,6 +41,7 @@ module.exports = React.createClass({
           fill={props.fill} 
           onMouseOver={props.handleMouseOver}
           onMouseLeave={props.handleMouseLeave}
+          onClick = {onClickHandler}
         />
         <text
           x={props.width / 2}
@@ -43,6 +49,7 @@ module.exports = React.createClass({
           dy='.35em'
           style={textStyle}
           className='rd3-treemap-cell-text'
+          onClick = {onClickHandler}
         >
           {props.label}
         </text>

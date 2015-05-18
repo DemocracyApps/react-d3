@@ -51,6 +51,8 @@ module.exports = React.createClass({
           fontSize={props.fontSize}
           textColor={props.textColor}
           hoverAnimation={props.hoverAnimation}
+          eventHandlers={props.eventHandlers}
+          dataContext={{index: idx, label: node.label, value: node.value}}
         />
       );
     }, this);
