@@ -58,6 +58,7 @@ module.exports = React.createClass({
             fontSize={props.fontSize}
             hoverAnimation={props.hoverAnimation}
             eventHandlers={props.eventHandlers}
+            extraProperties={props.extraProperties || {}}
           />
         </g>
       </Chart>

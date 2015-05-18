@@ -24,6 +24,8 @@ module.exports = React.createClass({
       'fill': props.textColor,
       'fontSize': props.fontSize
     };
+
+    // Pull out any event handlers that the user has provided
     var onClickHandler = undefined;
     if (this.props.hasOwnProperty('eventHandlers')) {
       if (this.props.eventHandlers.hasOwnProperty('onClick')) {
@@ -31,7 +33,25 @@ module.exports = React.createClass({
       }
     }
 
+    // Modify the label if it isn't likely to fit in the rectangle
+    var avgCharWidth = 8;
+    if (props.extraProperties.hasOwnProperty('avgCharWidth')) {
+      avgCharWidth = props.extraProperties.avgCharWidth;
+    }
+
+    var label = props.label || "";
+    if (label.length * avgCharWidth > props.width) {
+      if (props.width/avgCharWidth < 6) {
+        label = "";
+      }
+      else {
+        var allowed = props.width/avgCharWidth - 3;
+        label = label.substring(0,allowed) + "...";
+      }
+    }
+
     var t = `translate(${props.x}, ${props.y}  )`;
+
     return (
       <g transform={t}>
         <rect
@@ -51,7 +71,7 @@ module.exports = React.createClass({
           className='rd3-treemap-cell-text'
           onClick = {onClickHandler}
         >
-          {props.label}
+          {label}
         </text>
       </g>
     );
